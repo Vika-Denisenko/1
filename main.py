@@ -1,34 +1,18 @@
-import math
-import random
+from tkinter import *
+from tkinter.messagebox import showinfo
 
-custumer = [1,2,3,4,5,6,7,8,9,10]
-i = 0
-infoCount = []
-while i < 10:
-    infoCount.append(random.randint(1,5))
-    i += 1
 
-index = 0
-infoWeight = []
-i = 0
-while i < 10:
+class MyGui(Frame):
+    def __init__(self, parent=None):
+        Frame.__init__(self, parent)
+        button = Button(self, text='press', command=self.reply)
+        button.pack()
 
-    infoWeight.append((random.randint(1,3)) * infoCount[index])
-    i += 1
-    index += 1
+    def reply(self):
+        showinfo(title='popup', message='Button pressed!')
 
-a1 = 0
-for e in infoCount:
-    if e >= 2:
-        a1 += 1
 
-for e in infoWeight:
-    print (custumer.index(e))
-
-print(infoCount)
-print(infoWeight)
-
-print("____________________________")
-print(a1)
-print(a1)
-print('ghjglhlkhlh')
+if __name__ == '__main__':
+    window = MyGui()
+    window.pack()
+    window.mainloop()
